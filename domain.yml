@@ -1,0 +1,145 @@
+version: "3.1"
+
+intents:
+  - hello
+  - tablecheck
+  - doreservationtoday
+  - saynamereservation
+  - saynumberpers
+  - sayphonenumber
+  - saybabychair
+  - askdailymenu
+  - askallergies
+  - cancelreservation
+  - cancelreservationtoday
+  - cancelreservationname
+  - cancelreservationok
+  - getlinktofullmenu
+  - allgood
+  - addcomment
+  - modifycomment
+  - content
+  - remerciement
+  - goodbyetoday
+  - goodbye
+  - showreservationinfo
+
+
+actions:
+  - utter_on_hello
+  - utter_ask_comment
+  - utter_confirm_name_stored
+  - utter_confirm_number_place_stored
+  - utter_hour_noted
+  - utter_show_reservation_info
+  - utter_table_check
+  - utter_take_name
+  - utter_ask_number_pers
+  - utter_take_phone
+  - utter_ask_anythingelse
+  - utter_say_daily_menu
+  - utter_say_allergies
+  - utter_send_link_full_menu
+  - utter_table_valid
+  - utter_ask_when
+  - utter_ask_name_reservation
+  - utter_cancel_ok
+  - utter_good_bye
+  - action_modify_comment
+  - utter_comment_added
+  - action_show_reservation_info
+
+slots:
+  table_reservation_comment:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: commentaire
+    influence_conversation: false
+  reservation_name:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: name
+  hour_reservation:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: hour
+  number_place_reservation:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: place
+
+
+entities:
+  - name
+  - hour
+  - place
+  - commentaire
+
+responses:
+  utter_on_hello:
+    - text: "Bonjour, comment puis-je vous aider ?"
+
+  utter_comment_added:
+    - text: "Votre commentaire à été ajouté !"
+
+  utter_ask_comment:
+    - text: "Souhaitez vous ajouter un commentaire ?"
+
+  utter_confirm_name_stored:
+    - text: "Merci {reservation_name}, de votre réservation"
+
+  utter_confirm_number_place_stored:
+    - text: "Une table pour {number_place_reservation}"
+
+  utter_hour_noted:
+    - text: "La réservation est pour {hour_reservation}"
+
+  utter_show_reservation_info:
+    - text: "Information de réservation :\nNom : {reservation_name}\nPlace : {number_place_reservation}\nHeure de réservation: {hour_reservation}\nCommentaire : {table_reservation_comment}"
+
+  utter_tablecheck:
+    - text: "Pour quel heure souhaitez vous réserver ?"
+
+  utter_take_name:
+    - text: "A quel nom est la réservation ?"
+
+  utter_ask_number_pers:
+    - text: "Pour combien de personne ?"
+
+  utter_take_phone:
+    - text: "Quel est votre numéro de téléphone pour la réservation ?"
+
+  utter_ask_anythingelse:
+    - text: "Avez vous besoin d'autre chose ?"
+
+  utter_say_daily_menu:
+    - text: "Menu du jour :\nEntrée : Foie Gras de Canard Poêlé, Servi avec une Confiture d'Oignons et une Brioche Maison\nPlat principal : Filet de Bœuf Rossini, Sauce Périgourdine, Accompagné de Pommes Dauphine et de Légumes de Saison\nDessert: Soufflé au Grand Marnier, Servi avec une Glace à la Vanille Bourbon"
+
+  utter_say_allergies:
+    - text: "Il n'y a pas d'allergène"
+
+  utter_send_link_full_menu:
+    - text: "Voici le lien vers le menu complet : https://img.restaurantguru.com/m7/Restaurant-Le-Coq-en-Pate-menu.jpg"
+
+  utter_table_valid:
+    - text: "La table vous est réservé"
+
+  utter_ask_when:
+    - text: "Pour quel jour est la réservation ?"
+
+  utter_ask_name_reservation:
+    - text: "A quel nom est la réservation ?"
+
+  utter_cancel_ok:
+    - text: "Votre réservation est annulée"
+
+  utter_good_bye:
+    - text: "Au revoir"
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true

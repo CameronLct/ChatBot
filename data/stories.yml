@@ -1,0 +1,85 @@
+version: "3.1"
+
+stories:
+
+- story: Réservation classique
+  steps:
+    - intent: hello
+    - action: utter_on_hello
+    - intent: tablecheck
+    - action: utter_tablecheck
+    - intent: doreservationtoday
+      entities:
+        - hour: 20h30
+    - slot_was_set:
+        - hour_reservation: 20h30
+    - action: utter_hour_noted
+    - action: utter_take_name
+    - intent: saynamereservation
+      entities:
+        - name: Dupont
+    - slot_was_set:
+        - reservation_name: Dupont
+    - action: utter_confirm_name_stored
+    - action: utter_ask_numberpers
+    - intent: saynumberpers
+      entities:
+        - place: '4'
+    - slot_was_set:
+        - number_place_reservation: '4'
+    - action: utter_confirm_number_place_stored
+    - action: utter_take_phone
+    - intent: sayphonenumber
+      entities:
+        - phone_number: '0666666666'
+    - action: utter_ask_anythingelse
+    - intent: askdailymenu
+    - action: utter_say_daily_menu
+    - intent: askallergies
+    - action: utter_say_allergies
+    - action: utter_ask_anythingelse
+    - intent: getlinktofullmenu
+    - action: utter_send_link_full_menu
+    - action: utter_ask_anythingelse
+    - intent: add_comment
+    - action: utter_ask_comment
+    - intent: saybabychair
+      entities:
+        - commentaire: Est-ce que vous avez une chaise pour enfant disponible ?
+    - slot_was_set:
+        - table_reservation_comment: 'Est-ce que vous avez une chaise pour enfant disponible ?'
+    - action: utter_comment_added
+    - action: utter_ask_anythingelse
+    - intent: content
+    - action: utter_table_valid
+    - action: utter_show_reservation_info
+    - intent: remerciement
+
+
+- story: Annulation d'une réservation
+  steps:
+    - intent: hello
+    - action: utter_on_hello
+    - intent: cancelreservation
+    - action: utter_ask_when
+    - intent: cancelreservationtoday
+    - action: utter_ask_name_reservation
+    - intent: cancelreservationname
+    - action: utter_cancel_ok
+    - intent: cancelreservationok
+    - intent: remerciement
+    - action: utter_good_bye
+
+
+- story: Modifier un commentaire de la réservation
+  steps:
+    - intent: modify_comment
+    - action: utter_ask_comment
+    - intent: saybabychair
+    - action: action_modify_comment
+
+
+- story: Afficher les informations de la réservation
+  steps:
+    - intent: show_reservation_info
+    - action: action_show_reservation_info

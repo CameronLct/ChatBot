@@ -1,0 +1,527 @@
+version: "3.1"
+
+nlu:
+- intent: hello
+  examples: |
+    - Hello
+    - Bonjour
+    - Bonsoir
+    - Salut
+
+- intent: tablecheck
+  examples: |
+      - Bonjour, avez-vous des tables disponibles pour ce soir ?
+      - Est-ce qu'il reste des places pour dîner ce soir ?
+      - Y a-t-il encore des tables libres pour déjeuner ?
+      - Puis-je réserver une table pour ce soir ?
+      - Est-ce que vous avez des disponibilités pour ce soir ?
+      - Auriez-vous une table libre pour deux personnes ce soir ?
+      - Y a-t-il encore des tables disponibles pour demain soir ?
+      - Est-ce qu'il reste des places pour dîner ce week-end ?
+      - Bonjour, est-ce possible de réserver une table pour quatre personnes ce soir ?
+      - Avez-vous des tables disponibles pour ce soir sans réservation ?
+      - Puis-je savoir si vous avez des tables libres pour ce soir ?
+      - Est-ce que je peux avoir une table pour ce soir ?
+      - Bonjour, est-ce qu'il y a encore des places pour ce soir ?
+      - Avez-vous des disponibilités pour une table de deux ce soir ?
+      - Y a-t-il une table disponible pour ce soir ?
+      - Est-ce qu'il reste des tables disponibles pour dîner ce soir ?
+      - Est-ce que vous avez des places pour ce soir ?
+      - Pourriez-vous me dire si vous avez des tables libres pour ce soir ?
+      - Est-il possible de réserver une table pour ce soir ?
+      - Bonjour, est-ce qu'il reste des tables pour ce soir ?
+      - Avez-vous une table de libre pour ce soir ?
+      - Puis-je réserver une table pour deux personnes pour ce soir ?
+      - Y a-t-il des tables disponibles pour ce soir ?
+      - Est-ce que vous avez des tables libres pour ce soir ?
+      - Est-ce possible d'avoir une table pour ce soir ?
+
+- intent: doreservationtoday
+  examples: |
+      - Bonjour, je voudrais réserver une table pour [18h00](hour) ce soir.
+      - Est-il possible de réserver une table pour [18h15](hour) ce soir ?
+      - Je souhaiterais réserver une table pour [18h30](hour), s'il vous plaît.
+      - Puis-je réserver une table pour [18h45](hour) ce soir ?
+      - Avez-vous une table disponible pour [19h00](hour) ce soir ?
+      - Je voudrais réserver une table pour deux personnes à [19h15](hour).
+      - Est-ce que je peux avoir une table pour [19h30](hour) ce soir ?
+      - Je voudrais faire une réservation pour [19h45](hour) ce soir.
+      - Pourriez-vous me réserver une table pour [20h00](hour) ce soir ?
+      - Bonjour, est-ce possible de réserver une table pour [20h15](hour) ?
+      - Je souhaiterais réserver une table pour quatre personnes à [20h30](hour).
+      - Est-il possible de réserver une table pour deux à [20h45](hour) ce soir ?
+      - Je voudrais réserver une table pour trois personnes à [21h00](hour).
+      - Pourriez-vous réserver une table pour [21h15](hour) ce soir ?
+      - Je veux réserver une table pour [21h30](hour) ce soir.
+      - Bonjour, je voudrais réserver une table pour [21h45](hour), merci.
+      - Puis-je réserver une table pour quatre à [22h00](hour) ce soir ?
+      - J'aimerais réserver une table pour [22h15](hour) ce soir.
+      - Bonjour, est-ce que je peux réserver une table pour [22h30](hour) ce soir ?
+      - Je voudrais faire une réservation pour [22h45](hour), s'il vous plaît.
+      - Bonjour, je voudrais réserver une table pour [23h00](hour) ce soir pour deux personnes.
+      - Est-il possible d'avoir une table pour [23h15](hour) ce soir ?
+      - Puis-je réserver une table pour [23h30](hour) ce soir pour quatre personnes ?
+      - Je souhaiterais réserver une table pour deux personnes à [23h45](hour) ce soir.
+      - Avez-vous une table de libre pour [00h00](hour) ce soir ?
+
+- intent: saynamereservation
+  examples: |
+      - La réservation est au nom de [Martin](name).
+      - Mon nom est [Dupont](name) pour la réservation.
+      - Je voudrais réserver une table au nom de [Lefèvre](name).
+      - La réservation sera au nom de [Moreau](name).
+      - Réservez au nom de [Lambert](name), s'il vous plaît.
+      - [Girard](name), pour une réservation.
+      - Pourriez-vous réserver une table au nom de [Bonnet](name) ?
+      - C'est [Rousseau](name) pour la réservation.
+      - Je réserve une table, nom [Petit](name).
+      - La réservation est au nom de [Durand](name).
+      - [Fournier](name), une table, s'il vous plaît.
+      - Je voudrais une table, nom de la réservation : [Garnier](name).
+      - Réservez une table au nom de [Leroy](name).
+      - La table sera au nom de [François](name).
+      - [Gauthier](name), réservation.
+      - Je voudrais réserver au nom de [Perrin](name).
+      - La réservation est au nom de [Gautier](name).
+      - Mon nom est [Maillard](name), et je voudrais réserver une table.
+      - Réservez au nom de [Barbier](name).
+      - La réservation est pour [Morel](name).
+      - [Blanchard](name) pour une réservation.
+      - Veuillez réserver une table au nom de [Marchand](name).
+      - Je réserve, nom [Dubois](name).
+      - C'est [Vidal](name) pour une table.
+      - Réservation au nom de [Renault](name).
+
+- intent: saynumberpers
+  examples: |
+      - Nous serons deux pour la réservation.
+      - Je voudrais réserver une table pour quatre personnes.
+      - Nous serons six.
+      - Pouvez-vous réserver une table pour cinq personnes, s'il vous plaît ?
+      - La réservation est pour trois personnes.
+      - Nous serons huit pour dîner.
+      - Je voudrais une table pour deux.
+      - Nous sommes quatre.
+      - Je souhaiterais réserver pour sept personnes.
+      - La réservation sera pour deux personnes.
+      - Nous serons dix.
+      - Réservez une table pour cinq, s'il vous plaît.
+      - Je réserve pour six personnes.
+      - Nous serons trois pour la réservation.
+      - Pourriez-vous réserver une table pour quatre ?
+      - Nous serons deux ce soir.
+      - La réservation est pour huit personnes.
+      - Nous serons cinq pour déjeuner.
+      - Réservez pour sept personnes, s'il vous plaît.
+      - Je voudrais réserver pour trois.
+      - Nous serons quatre pour dîner.
+      - La table sera pour six personnes.
+      - Je souhaite réserver pour deux personnes.
+      - Nous serons cinq.
+      - Je voudrais une table pour huit personnes.
+
+- intent: sayphonenumber
+  examples: |
+      - Mon numéro de téléphone est [123-456-7890](phonenumber).
+      - Vous pouvez me joindre au [555-123-4567](phonenumber).
+      - Voici mon numéro de téléphone : [987-654-3210](phonenumber).
+      - Pour toute confirmation, appelez-moi au [555-555-5555](phonenumber).
+      - Vous pouvez me contacter au [123-456-7890](phonenumber) en cas de besoin.
+      - Mon numéro de contact est [555-123-4567](phonenumber).
+      - Pour des informations supplémentaires, mon numéro est [987-654-3210](phonenumber).
+      - Si nécessaire, vous pouvez me joindre au [555-555-5555](phonenumber).
+      - Je laisse mon numéro de téléphone : [123-456-7890](phonenumber).
+      - N'hésitez pas à me contacter au [555-123-4567](phonenumber).
+      - Mon numéro de téléphone pour la réservation : [987-654-3210](phonenumber).
+      - Si vous avez des questions, appelez-moi au [555-555-5555](phonenumber).
+      - Pour toute modification, appelez-moi au [123-456-7890](phonenumber).
+      - Vous pouvez me joindre au [555-123-4567](phonenumber) si nécessaire.
+      - Mon numéro pour la réservation est [987-654-3210](phonenumber).
+      - Pour des détails supplémentaires, contactez-moi au [555-555-5555](phonenumber).
+      - Si besoin, appelez-moi au [123-456-7890](phonenumber).
+      - Mon numéro de contact pour la réservation : [555-123-4567](phonenumber).
+      - Vous pouvez me contacter au [987-654-3210](phonenumber) en cas de questions.
+      - Si vous avez besoin de me joindre, composez le [555-555-5555](phonenumber).
+      - Mon numéro est [123-456-7890](phonenumber) pour la réservation.
+      - N'hésitez pas à m'appeler au [555-123-4567](phonenumber) si nécessaire.
+      - Mon numéro de téléphone pour toute confirmation : [987-654-3210](phonenumber).
+
+- intent: saybabychair
+  examples: |
+      - Est-ce que vous avez une [chaise pour enfant ?](commentaire) disponible ?
+      - Auriez-vous une [chaise haute pour bébé ?](commentaire)
+      - Pouvons-nous obtenir une [chaise pour bébé ?](commentaire)
+      - Nous avons un [bébé](commentaire) avec nous, auriez-vous une [chaise adaptée ?](commentaire)
+      - Je voudrais réserver une table et une [chaise pour bébé,](commentaire) s'il vous plaît.
+      - Est-il possible d'avoir une [chaise haute pour notre enfant ?](commentaire)
+      - Nous aurions besoin d'une [chaise pour bébé](commentaire) pour notre réservation.
+      - Serait-il possible d'avoir une [chaise pour enfant pour notre table ?](commentaire)
+      - Nous avons un [petit](commentaire) avec nous, pourrions-nous avoir une [chaise haute ?](commentaire)
+      - Pouvons-nous obtenir une [chaise pour notre bébé pendant notre repas ?](commentaire)
+      - Nous avons un [enfant en bas âge](commentaire), auriez-vous une [chaise adaptée ?](commentaire)
+      - Serait-il possible d'avoir une [chaise haute pour notre tout-petit ?](commentaire)
+      - Est-ce que vous pouvez fournir une [chaise pour bébé pour notre table ?](commentaire)
+      - Nous avons un [bébé](commentaire) avec nous, est-ce que vous avez une [chaise haute ?](commentaire)
+      - Je voudrais réserver une table avec une [chaise pour bébé,](commentaire) s'il vous plaît.
+      - Est-il possible d'obtenir une [chaise haute pour notre enfant ?](commentaire)
+      - Serait-il possible d'avoir une [chaise pour bébé pendant notre repas ?](commentaire)
+      - Nous aurions besoin d'une [chaise pour bébé pour notre réservation.](commentaire)
+      - Est-ce que vous avez des [chaises hautes pour les bébés disponibles ?](commentaire)
+      - Je souhaite réserver une table avec une [chaise haute pour mon enfant.](commentaire)
+      - Nous avons un [tout-petit](commentaire) avec nous, pourrions-nous avoir une [chaise adaptée ?](commentaire)
+      - Pouvons-nous obtenir une [chaise pour bébé pour notre table ?](commentaire)
+      - Est-il possible d'avoir une [chaise haute pour notre petit lors de notre repas ?](commentaire)
+      - Nous aurions besoin d'une [chaise pour enfant pendant notre repas.](commentaire)
+
+- intent: askdailymenu
+  examples: |
+      - Quel est le menu du jour ?
+      - Pouvez-vous me donner le menu du jour, s'il vous plaît ?
+      - Quels sont les plats proposés aujourd'hui ?
+      - Puis-je voir le menu du jour ?
+      - Y a-t-il un menu spécial pour aujourd'hui ?
+      - Pourriez-vous me dire ce qui est au menu aujourd'hui ?
+      - Quels sont les plats disponibles aujourd'hui ?
+      - Est-ce que vous pourriez me donner des informations sur le menu du jour ?
+      - Je voudrais savoir ce qui est au menu aujourd'hui.
+      - Quels sont les plats du jour ?
+      - Avez-vous un menu spécial pour aujourd'hui ?
+      - Je suis intéressé par le menu du jour, pourriez-vous me le donner ?
+      - Pourrais-je avoir des détails sur le menu proposé aujourd'hui ?
+      - Quels sont les plats recommandés pour aujourd'hui ?
+      - Est-ce que vous pourriez m'indiquer ce qui est au menu du jour ?
+      - Je suis curieux de connaître le menu du jour.
+      - Quels sont les plats spéciaux pour aujourd'hui ?
+      - Pouvez-vous me présenter le menu du jour, s'il vous plaît ?
+      - Y a-t-il un menu particulier pour aujourd'hui ?
+      - Quels sont les plats à ne pas manquer aujourd'hui ?
+      - Pouvez-vous me donner des informations sur le menu du jour ?
+      - Je voudrais savoir ce qui est au menu pour aujourd'hui.
+      - Quels sont les plats principaux pour aujourd'hui ?
+      - Avez-vous des spécialités au menu aujourd'hui ?
+      - Je suis intéressé par le menu du jour, pourriez-vous me le donner ?
+
+- intent: askallergies
+  examples: |
+      - Quels sont les allergènes présents dans vos plats ?
+      - Pourriez-vous me dire quels sont les allergènes contenus dans votre menu ?
+      - Y a-t-il des allergènes spécifiques à vos plats ?
+      - Puis-je avoir des informations sur les allergènes dans votre cuisine ?
+      - Quels allergènes devrais-je prendre en compte dans votre menu ?
+      - Avez-vous des plats sans allergènes dans votre menu ?
+      - Est-ce que vous pouvez m'informer sur les allergènes présents dans vos recettes ?
+      - Y a-t-il des allergènes courants que je devrais connaître dans votre menu ?
+      - Je suis allergique à certains aliments, pouvez-vous me dire quels sont les allergènes présents dans vos plats ?
+      - Quels allergènes sont à éviter dans votre cuisine ?
+      - Pouvez-vous me donner des détails sur les allergènes dans vos plats ?
+      - Est-ce que vos plats contiennent des allergènes courants ?
+      - Quels sont les allergènes les plus fréquents dans votre menu ?
+      - Pourrais-je connaître les allergènes présents dans vos recettes ?
+      - Y a-t-il des allergènes courants à prendre en compte dans votre cuisine ?
+      - Est-ce que vous pouvez me dire quels allergènes sont présents dans vos plats ?
+      - Je voudrais être informé sur les allergènes contenus dans votre menu, s'il vous plaît.
+      - Avez-vous des informations sur les allergènes dans vos plats ?
+      - Quels sont les allergènes à risque dans votre cuisine ?
+      - Pouvez-vous me donner des détails sur les allergènes dans vos plats ?
+      - Y a-t-il des allergènes à noter dans votre menu ?
+      - Quels allergènes sont présents dans vos recettes ?
+      - Est-ce que vous avez des plats adaptés aux personnes allergiques dans votre menu ?
+      - Je suis soucieux des allergènes, pouvez-vous me donner des informations sur les allergènes dans vos plats ?
+
+- intent: cancelreservation
+  examples: |
+      - Je souhaite annuler ma réservation.
+      - Pouvez-vous annuler ma réservation pour ce soir ?
+      - J'aimerais annuler la réservation que j'ai faite pour ce soir.
+      - Est-il possible d'annuler ma réservation pour ce soir ?
+      - Je voudrais annuler ma réservation pour ce soir.
+      - Annulez ma réservation pour ce soir, s'il vous plaît.
+      - Je souhaite annuler ma réservation pour ce soir.
+      - Pouvez-vous annuler la réservation que j'ai faite pour ce soir ?
+      - J'aimerais annuler ma réservation pour ce soir.
+      - Est-il possible d'annuler ma réservation pour ce soir ?
+      - Je voudrais annuler ma réservation pour ce soir.
+      - Annulez ma réservation pour ce soir, s'il vous plaît.
+      - Je souhaite annuler ma réservation pour ce soir.
+      - Pouvez-vous annuler la réservation que j'ai faite pour ce soir ?
+      - J'aimerais annuler ma réservation pour ce soir.
+      - Est-il possible d'annuler ma réservation pour ce soir ?
+      - Je voudrais annuler ma réservation pour ce soir.
+      - Annulez ma réservation pour ce soir, s'il vous plaît.
+      - Je souhaite annuler ma réservation pour ce soir.
+      - Pouvez-vous annuler la réservation que j'ai faite pour ce soir ?
+      - J'aimerais annuler ma réservation pour ce soir.
+      - Est-il possible d'annuler ma réservation pour ce soir ?
+      - Je voudrais annuler ma réservation pour ce soir.
+      - Annulez ma réservation pour ce soir, s'il vous plaît.
+
+- intent: cancelreservationtoday
+  examples: |
+      - Je souhaite annuler ma réservation pour ce soir.
+      - Pouvez-vous annuler ma réservation pour ce soir ?
+      - J'aimerais annuler ma réservation pour ce soir.
+      - Est-il possible d'annuler ma réservation pour ce soir ?
+      - Je voudrais annuler ma réservation pour ce soir.
+      - Annulez ma réservation pour ce soir, s'il vous plaît.
+      - Je souhaite annuler ma réservation pour ce soir.
+      - Pouvez-vous annuler la réservation pour ce soir que j'ai faite ?
+      - J'aimerais annuler ma réservation pour ce soir.
+      - Est-il possible d'annuler la réservation que j'ai faite pour ce soir ?
+      - Je voudrais annuler ma réservation pour ce soir.
+      - Annulez ma réservation pour ce soir, s'il vous plaît.
+      - Je souhaite annuler ma réservation pour ce soir.
+      - Pouvez-vous annuler ma réservation pour ce soir ?
+      - J'aimerais annuler ma réservation pour ce soir.
+      - Est-il possible d'annuler ma réservation pour ce soir ?
+      - Je voudrais annuler ma réservation pour ce soir.
+      - Annulez ma réservation pour ce soir, s'il vous plaît.
+      - Je souhaite annuler ma réservation pour ce soir.
+      - Pouvez-vous annuler la réservation pour ce soir que j'ai faite ?
+      - J'aimerais annuler ma réservation pour ce soir.
+      - Est-il possible d'annuler la réservation que j'ai faite pour ce soir ?
+      - Je voudrais annuler ma réservation pour ce soir.
+      - Annulez ma réservation pour ce soir, s'il vous plaît.
+
+- intent: cancelreservationname
+  examples: |
+      - Je souhaite annuler ma réservation au nom de [Martin](name).
+      - Pouvez-vous annuler ma réservation pour ce soir au nom de [Dupont](name) ?
+      - J'aimerais annuler ma réservation pour ce soir au nom de [Lefèvre](name).
+      - Est-il possible d'annuler ma réservation pour ce soir au nom de [Moreau](name) ?
+      - Je voudrais annuler ma réservation pour ce soir au nom de [Lambert](name).
+      - Annulez ma réservation pour ce soir au nom de [Girard](name), s'il vous plaît.
+      - Je souhaite annuler ma réservation pour ce soir au nom de [Bonnet](name).
+      - Pouvez-vous annuler la réservation pour ce soir au nom de [Rousseau](name) que j'ai faite ?
+      - J'aimerais annuler ma réservation pour ce soir au nom de [Petit](name).
+      - Est-il possible d'annuler la réservation que j'ai faite pour ce soir au nom de [Durand](name) ?
+      - Je voudrais annuler ma réservation pour ce soir au nom de [Fournier](name).
+      - Annulez ma réservation pour ce soir au nom de [Garnier](name), s'il vous plaît.
+      - Je souhaite annuler ma réservation pour ce soir au nom de [Leroy](name).
+      - Pouvez-vous annuler ma réservation pour ce soir au nom de [François](name) ?
+      - J'aimerais annuler ma réservation pour ce soir au nom de [Gauthier](name).
+      - Est-il possible d'annuler ma réservation pour ce soir au nom de [Perrin](name) ?
+      - Je voudrais annuler ma réservation pour ce soir au nom de [Gautier](name).
+      - Annulez ma réservation pour ce soir au nom de [Maillard](name), s'il vous plaît.
+      - Je souhaite annuler ma réservation pour ce soir au nom de [Barbier](name).
+      - Pouvez-vous annuler la réservation pour ce soir au nom de [Morel](name) que j'ai faite ?
+      - J'aimerais annuler ma réservation pour ce soir au nom de [Blanchard](name).
+      - Est-il possible d'annuler la réservation que j'ai faite pour ce soir au nom de [Marchand](name) ?
+      - Je voudrais annuler ma réservation pour ce soir au nom de [Dubois](name).
+      - Annulez ma réservation pour ce soir au nom de [Vidal](name), s'il vous plaît.
+      - Je souhaite annuler ma réservation pour ce soir au nom de [Renault](name).
+
+- intent: cancelreservationok
+  examples: |
+      - Votre réservation a été annulée avec succès.
+      - L'annulation de votre réservation a été prise en compte.
+      - La réservation a été annulée.
+      - Vous avez annulé votre réservation avec succès.
+      - L'annulation de la réservation a été confirmée.
+      - Votre réservation a bien été annulée.
+      - La réservation a été annulée comme demandé.
+      - C'est noté, votre réservation est annulée.
+      - Votre demande d'annulation de réservation a été traitée.
+      - L'annulation de la réservation est confirmée.
+
+- intent: getlinktofullmenu
+  examples: |
+      - Pourriez-vous me fournir le lien vers le menu complet ?
+      - Est-ce que je peux obtenir le lien du menu complet ?
+      - Puis-je avoir le lien vers l'intégralité du menu ?
+      - Pourriez-vous me donner le lien du menu en entier ?
+      - J'aimerais obtenir le lien du menu complet, s'il vous plaît.
+      - Est-il possible d'obtenir le lien vers le menu dans son intégralité ?
+      - Serait-il possible d'avoir le lien du menu complet ?
+      - Pourrais-je recevoir le lien du menu dans son intégralité ?
+      - Je souhaite obtenir le lien vers l'ensemble du menu, est-ce possible ?
+      - Y a-t-il un lien vers le menu complet que je pourrais consulter ?
+      - Puis-je avoir le lien du menu dans son intégralité, s'il vous plaît ?
+      - Est-ce que vous pourriez me fournir le lien vers le menu entier ?
+      - Je voudrais accéder au menu complet, pouvez-vous m'envoyer le lien ?
+      - Pourriez-vous m'envoyer le lien du menu complet, s'il vous plaît ?
+      - Serait-il possible d'obtenir le lien vers tout le menu que vous proposez ?
+      - Est-ce que je pourrais obtenir le lien du menu en entier, s'il vous plaît ?
+      - Puis-je recevoir le lien vers l'ensemble du menu proposé ?
+      - Je voudrais consulter le menu complet, pourrais-je avoir le lien ?
+      - Pourriez-vous me fournir le lien vers le menu entièrement détaillé ?
+      - Serait-il possible d'obtenir le lien du menu complet à consulter ?
+
+- intent: allgood
+  examples: |
+      - Tout est en ordre.
+      - Oui, tout va bien.
+      - Tout est bon de mon côté.
+      - Oui, tout est parfait.
+      - Tout est parfaitement en règle.
+      - Oui, tout est en bonne voie.
+      - Oui, tout est correct.
+      - Tout va bien de mon côté.
+      - Oui, tout est conforme à mes attentes.
+      - Oui, tout est réglé comme il faut.
+      - Tout est bon pour moi.
+      - Oui, tout est en bon état.
+      - Tout est parfaitement en ordre.
+      - Oui, tout est en place.
+      - Tout est correct de mon côté.
+      - Oui, tout est satisfaisant.
+      - Tout est en règle de mon côté.
+      - Oui, tout est conforme à ce que je souhaite.
+      - Tout est bien comme ça.
+      - Oui, tout est satisfaisant pour moi.
+
+- intent: add_comment
+  examples: |
+      - Est-ce que je peux ajouter un commentaire à ma réservation ?
+      - Puis-je inclure un commentaire avec ma réservation ?
+      - Est-il possible d'ajouter une note à ma réservation ?
+      - Je souhaite ajouter un commentaire à ma réservation, est-ce possible ?
+      - Serait-il possible d'ajouter une remarque à ma réservation ?
+      - Je voudrais ajouter un commentaire à ma réservation, est-ce autorisé ?
+      - Est-ce que je peux laisser un commentaire avec ma réservation ?
+      - Puis-je inclure des instructions spéciales dans ma réservation ?
+      - Est-il possible d'ajouter des détails supplémentaires à ma réservation ?
+      - Je souhaite ajouter des informations spécifiques à ma réservation, est-ce faisable ?
+      - Serait-il possible d'ajouter des instructions particulières à ma réservation ?
+      - Je voudrais laisser un commentaire avec ma réservation, est-ce accepté ?
+      - Est-ce que je peux inclure des détails spécifiques dans ma réservation ?
+      - Puis-je ajouter des informations supplémentaires à ma réservation ?
+      - Est-il possible de fournir des détails supplémentaires lors de ma réservation ?
+      - Je souhaite ajouter un commentaire à ma réservation pour ce soir, est-ce envisageable ?
+      - Serait-il possible d'inclure des notes spéciales dans ma réservation ?
+      - Je voudrais ajouter un commentaire à ma réservation pour ce soir, est-ce permis ?
+      - Est-ce que je peux ajouter des détails spécifiques à ma réservation ?
+      - Puis-je inclure des instructions particulières dans ma réservation ?
+
+- intent: modify_comment
+  examples: |
+      - Je souhaite modifier le commentaire de ma réservation.
+      - Est-il possible de changer le commentaire de ma réservation ?
+      - Puis-je modifier le commentaire associé à ma réservation ?
+      - Je voudrais modifier le commentaire que j'ai laissé avec ma réservation.
+      - Serait-il possible de mettre à jour le commentaire de ma réservation ?
+      - Est-ce que je peux changer le commentaire que j'ai laissé lors de la réservation ?
+      - Je souhaite mettre à jour le commentaire de ma réservation, est-ce faisable ?
+      - Est-il possible de modifier le commentaire associé à ma réservation ?
+      - Je voudrais modifier le commentaire que j'ai laissé pour ma réservation, est-ce autorisé ?
+      - Serait-il possible de changer le commentaire que j'ai laissé avec ma réservation ?
+      - Est-ce que je peux mettre à jour le commentaire de ma réservation ?
+      - Je souhaite modifier le commentaire de ma réservation pour ce soir, est-ce envisageable ?
+      - Est-il possible de changer le commentaire de ma réservation pour ce soir ?
+      - Puis-je modifier le commentaire associé à ma réservation pour ce soir ?
+      - Je voudrais mettre à jour le commentaire que j'ai laissé avec ma réservation pour ce soir.
+      - Serait-il possible de mettre à jour le commentaire de ma réservation pour ce soir ?
+      - Est-ce que je peux changer le commentaire que j'ai laissé lors de la réservation pour ce soir ?
+      - Je souhaite modifier le commentaire de ma réservation pour ce soir, est-ce faisable ?
+      - Est-il possible de modifier le commentaire associé à ma réservation pour ce soir ?
+      - Je voudrais modifier le commentaire que j'ai laissé pour ma réservation pour ce soir, est-ce autorisé ?
+
+- intent: content
+  examples: |
+      - Ma réservation est confirmée.
+      - Je confirme ma réservation.
+      - La réservation est bien enregistrée.
+      - Tout est en ordre pour ma réservation.
+      - Ma réservation est validée.
+      - Je suis sûr de ma réservation.
+      - La réservation est confirmée de mon côté.
+      - J'ai bien réservé.
+      - C'est bon pour ma réservation.
+      - La réservation est confirmée avec succès.
+      - Ma réservation est bien prise en compte.
+      - Je peux confirmer ma réservation.
+      - Tout est réglé pour ma réservation.
+      - Ma réservation est bien enregistrée.
+      - La réservation est confirmée.
+      - Réservation confirmée avec succès.
+
+- intent: remerciement
+  examples: |
+      - Merci beaucoup.
+      - Je vous remercie.
+      - Merci pour votre aide.
+      - Merci infiniment.
+      - Je vous suis reconnaissant(e).
+      - Je vous suis très reconnaissant(e).
+      - Merci pour tout.
+      - Un grand merci.
+      - Je tiens à vous remercier.
+      - Merci du fond du cœur.
+      - Je vous en suis très reconnaissant(e).
+      - Je vous suis très reconnaissant(e) pour votre assistance.
+      - Merci pour votre précieuse aide.
+      - Je vous suis extrêmement reconnaissant(e).
+      - Je vous remercie sincèrement.
+      - Merci bien.
+      - Je vous remercie chaleureusement.
+      - Je vous adresse mes remerciements.
+      - Merci pour votre soutien.
+      - Je vous suis reconnaissant(e) de votre collaboration.
+
+- intent: good_bye_today
+  examples: |
+      - Bonne journée !
+      - Passez une bonne journée !
+      - À bientôt !
+      - À la prochaine !
+      - Bonne journée à vous !
+      - Bonne journée et à bientôt !
+      - Bonne journée, au revoir !
+      - Au revoir et passez une bonne journée !
+      - Bonne journée et à la prochaine fois !
+      - Passez une excellente journée !
+      - Profitez bien de votre journée !
+      - Bonne journée, à plus tard !
+      - Bonne journée, à demain !
+      - À plus tard et bonne journée !
+      - À demain et bonne journée !
+      - Bonne journée, à la prochaine fois !
+      - Bonne journée, à bientôt !
+      - Bonne journée, et prenez soin de vous !
+      - À bientôt et bonne journée !
+      - Bonne journée et merci !
+
+- intent: good_bye
+  examples: |
+      - Au revoir !
+      - À bientôt !
+      - À la prochaine !
+      - Bonne journée !
+      - Bonne soirée !
+      - À plus tard !
+      - Bonne continuation !
+      - Prenez soin de vous !
+      - À demain !
+      - À la revoyure !
+      - À tout à l'heure !
+      - Bonne fin de journée !
+      - À la semaine prochaine !
+      - À tout de suite !
+      - Bonne nuit !
+      - À la prochaine fois !
+      - À la revanche !
+      - À très bientôt !
+      - À la revoyure !
+      - À très vite !
+
+- intent: show_reservation_info
+  examples: |
+      - Pouvez-vous me donner les détails de ma réservation ?
+      - Est-ce que je peux obtenir des informations sur ma réservation ?
+      - Puis-je savoir les détails de ma réservation ?
+      - J'aimerais connaître les informations concernant ma réservation.
+      - Pourriez-vous me fournir des détails sur ma réservation ?
+      - Est-il possible d'obtenir des informations sur ma réservation actuelle ?
+      - Pouvez-vous me dire ce que vous avez sur ma réservation ?
+      - Je souhaite obtenir les détails de ma réservation, est-ce possible ?
+      - Puis-je avoir un aperçu de ma réservation ?
+      - J'aimerais savoir ce que vous avez enregistré pour ma réservation.
+      - Pourrais-je obtenir des informations concernant ma réservation ?
+      - Est-ce que je pourrais avoir un récapitulatif de ma réservation ?
+      - Pouvez-vous me donner les informations de ma réservation ?
+      - Je voudrais connaître les détails de ma réservation, s'il vous plaît.
+      - Pourriez-vous m'informer sur ma réservation ?
+      - Est-il possible de consulter les détails de ma réservation ?
+      - J'aimerais savoir ce qui a été enregistré pour ma réservation.
+      - Pourrais-je obtenir les informations de ma réservation, s'il vous plaît ?
+      - Est-ce que je pourrais avoir des détails sur ma réservation actuelle ?
+      - Puis-je obtenir des informations sur ma réservation en cours ?
